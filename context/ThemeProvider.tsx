@@ -7,7 +7,7 @@ interface ThemeContextType {
   setMode: (mode: string) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(
+export const ThemeDataProvider = createContext<ThemeContextType | undefined>(
   undefined
 );
 
@@ -26,9 +26,9 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   //   handleChange();
   // }, [mode]);
   return (
-    <ThemeContext.Provider value={{ mode, setMode }}>
+    <ThemeDataProvider.Provider value={{ mode, setMode }}>
       {children}
-    </ThemeContext.Provider>
+    </ThemeDataProvider.Provider>
   );
 };
 
