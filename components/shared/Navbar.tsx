@@ -1,8 +1,10 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import siteLogo from "../../public/assests/images/site-logo.svg";
 import { SignedIn, UserButton } from "@clerk/nextjs";
+import Theme from "./Theme";
 
 const Navbar = () => {
   return (
@@ -15,7 +17,8 @@ const Navbar = () => {
       </Link>
       SearchField
       <div className="flex-between gap-5">
-        theme
+        {/* theme change menubar */}
+        <Theme></Theme>
         <SignedIn>
           <UserButton
             afterSignOutUrl="/"
