@@ -2,6 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
+import ThemeProvider from "@/context/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,14 +16,14 @@ const spaceGrotesk = Inter({
   variable: "--font-spaceGrotesk",
 });
 
-
 export const metadata: Metadata = {
-  title: 'DevsGround',
-  description: "A web app for developers to questions and answare. Colleborate with developers and many more.",
+  title: "DevsGround",
+  description:
+    "A web app for developers to questions and answare. Colleborate with developers and many more.",
   icons: {
-    icon: '/public/assests/images/site-logo.svg'
-  }
-}
+    icon: "/public/assests/images/site-logo.svg",
+  },
+};
 // console.log(inter.variable, spaceGrotesk.variable);
 
 export default function RootLayout({
@@ -31,12 +32,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        elements: {
+          formButtonPrimary: "primary-gradient",
+          footerActionLink: "primary-text-gradient hover:text-primary-500",
+        },
+      }}
+    >
       <html lang="en">
         <body
           className={`${inter.variable} ${spaceGrotesk.variable} container mx-auto`}
         >
-          {children}
+          <ThemeProvider>{children}</ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
