@@ -13,20 +13,27 @@ const ThemeDataProvider = createContext<ThemeContextType | undefined>(
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [mode, setMode] = useState("");
+
+  useEffect(() => {
+    handleChange();
+  }, [mode]);
+
   const handleChange = () => {
-    if (mode === "dark") {
-      setMode("light");
-      document.documentElement.classList.add("light");
-    } else {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
       setMode("dark");
       document.documentElement.classList.add("dark");
+    } else {
+      setMode("light");
+      document.documentElement.classList.remove("dark");
     }
   };
-  // useEffect(() => {
-  //   handleChange();
-  // }, [mode]);
-  // console.log('log from provider');
-  
+
+  // console.log("log from provider");
+
   return (
     <ThemeDataProvider.Provider value={{ mode, setMode }}>
       {children}
@@ -37,7 +44,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 export const useTheme = () => {
   const context = useContext(ThemeDataProvider);
   if (context === undefined) {
-    throw new Error("context is undefined")
+    throw new Error("context is undefined");
   }
   return context;
 };
