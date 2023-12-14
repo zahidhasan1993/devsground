@@ -26,7 +26,7 @@ const Theme = () => {
     } else {
       localStorage.removeItem("theme");
     }
-    console.log(mode);
+    // console.log(mode);
   };
   return (
     <Menubar className="relative border-none bg-transparent shadow-none">
