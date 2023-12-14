@@ -1,10 +1,11 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import siteLogo from "../../public/assests/images/site-logo.svg";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import Theme from "./Theme";
+import MobileNav from "./MobileNav";
+import GlobalSearch from "./search/GlobalSearch";
 
 const Navbar = () => {
   return (
@@ -15,7 +16,7 @@ const Navbar = () => {
           devs<span className="text-primary-500">ground</span>
         </p>
       </Link>
-      SearchField
+      <GlobalSearch></GlobalSearch>
       <div className="flex-between gap-5">
         {/* theme change menubar */}
         <Theme></Theme>
@@ -32,6 +33,7 @@ const Navbar = () => {
             }}
           ></UserButton>
         </SignedIn>
+        <MobileNav></MobileNav>
       </div>
     </nav>
   );

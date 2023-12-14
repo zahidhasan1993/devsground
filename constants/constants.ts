@@ -2,6 +2,13 @@ import sunImg from "@/public/assests/icons/sun.svg";
 import moonImg from "@/public/assests/icons/moon.svg";
 import systemImg from "@/public/assests/icons/computer.svg";
 import { SidebarLink } from "@/types";
+import homeImg from "@/public/assests/icons/home.svg";
+import communityImg from "@/public/assests/icons/users.svg";
+import collectionImg from "@/public/assests/icons/star.svg";
+import jobImg from "@/public/assests/icons/suitcase.svg";
+import tagImg from "@/public/assests/icons/tag.svg";
+import profileImg from "@/public/assests/icons/user.svg";
+import questionImg from "@/public/assests/icons/question.svg";
 
 export const themes = [
   { value: "light", label: "Light", icon: sunImg },
@@ -15,37 +22,37 @@ export const themes = [
 
 export const sidebarLinks: SidebarLink[] = [
   {
-    imgURL: "/assets/icons/home.svg",
+    imgURL: homeImg,
     route: "/",
     label: "Home",
   },
   {
-    imgURL: "/assets/icons/users.svg",
+    imgURL: communityImg,
     route: "/community",
     label: "Community",
   },
   {
-    imgURL: "/assets/icons/star.svg",
+    imgURL: collectionImg,
     route: "/collection",
     label: "Collections",
   },
   {
-    imgURL: "/assets/icons/suitcase.svg",
+    imgURL: jobImg,
     route: "/jobs",
     label: "Find Jobs",
   },
   {
-    imgURL: "/assets/icons/tag.svg",
+    imgURL: tagImg,
     route: "/tags",
     label: "Tags",
   },
   {
-    imgURL: "/assets/icons/user.svg",
+    imgURL: profileImg,
     route: "/profile",
     label: "Profile",
   },
   {
-    imgURL: "/assets/icons/question.svg",
+    imgURL: questionImg,
     route: "/ask-question",
     label: "Ask a question",
   },

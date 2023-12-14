@@ -8,12 +8,9 @@ export interface SidebarLink {
 
 export interface Job {
   id?: string;
-  12;
-
   employer_name?: string;
   employer_logo?: string | undefined;
   employer_website?: string;
-
   job_employment_type?: string;
   job_title?: string;
   job_description?: string;
