@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import arrow from "../../public/assests/icons/chevron-right.svg";
+import { Button } from "@/components/ui/button";
+
 const questions = [
   {
     title:
@@ -22,6 +24,28 @@ const questions = [
   {
     title: "Async/Await Function Not Handling Errors Properly",
     link: "https://nextjs.org/docs/app/building-your-application/data-fetching/patterns",
+  },
+];
+const tags = [
+  {
+    name: "reactJs",
+    amount: 27,
+  },
+  {
+    name: "Next",
+    amount: 18,
+  },
+  {
+    name: "HTML",
+    amount: 45,
+  },
+  {
+    name: "CSS",
+    amount: 37,
+  },
+  {
+    name: "javaScript",
+    amount: 155,
   },
 ];
 const RightSideBar = () => {
@@ -46,7 +70,20 @@ const RightSideBar = () => {
         </div>
       </div>
       <div className="mt-16">
-        <h1>hello</h1>
+        <h1 className="text-dark200_light900 h3-bold">Popular Tags</h1>
+        <div className="mt-8 space-y-5">
+          {tags.map((tag) => (
+            <div key={tag.amount} className="flex justify-between">
+              <Button
+                variant="outline"
+                className="background-light900_dark200 text-dark400_light700"
+              >
+                {tag.name}
+              </Button>
+              <p className="text-dark400_light700">{tag.amount}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
